@@ -3,12 +3,16 @@
 **Author:** Mauricio Sosa Giri
 **Email:** free4fun@riseup.net
 
+---
+
 ## Overview
 
 This is a professional and robust Bash script for batch converting video files in a given directory to a user-selected output format.
 - **All supported video files** (`mp4`, `mkv`, `avi`, `mov`, `webm`) in the input directory are automatically detected and converted.
 - Converted files are saved in a `converted` subfolder inside the input directory.
 - The script displays the progress percentage for each video during the conversion process.
+
+---
 
 ## Features
 
@@ -19,12 +23,16 @@ This is a professional and robust Bash script for batch converting video files i
 - **Robust error handling** and input validation.
 - **No dependencies** besides `ffmpeg`, `awk`, and `ffprobe` (usually included with ffmpeg).
 
+---
+
 ## Requirements
 
 - Bash (recommended: 4.x or newer)
 - [ffmpeg](https://ffmpeg.org/)
 - awk (standard in most Unix/Linux systems)
 - ffprobe (included with ffmpeg)
+
+---
 
 ## Usage
 
@@ -44,6 +52,8 @@ This is a professional and robust Bash script for batch converting video files i
   - The script will convert all supported video files, showing progress for each.
 
 4. **Converted files** will appear in the `converted` subfolder of your input directory.
+
+---
 
 ## Example
 
@@ -69,11 +79,15 @@ File converted: /home/user/Videos/converted/sample1.mp4
 Batch conversion completed.
 ```
 
+---
+
 ## Notes
 
 - The script will **skip** files if the converted output already exists.
 - Only the specified output format will be used for all conversions in the batch.
 - If you encounter errors related to `ffmpeg` or `ffprobe`, ensure they are properly installed and accessible in your system's PATH.
+
+---
 
 ## License
 

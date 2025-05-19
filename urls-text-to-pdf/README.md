@@ -81,7 +81,7 @@ PDF saved as output.pdf
 
 ## License
 
-This script is licensed under the GNU General Public License v3.0 or later.
+This script is licensed under the GNU Affero General Public License v3.0 or later.
 See [LICENSE](LICENSE) for details.
 
 ---

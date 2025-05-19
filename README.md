@@ -10,24 +10,24 @@ Each script resides in its own subfolder, accompanied by a dedicated `README.md`
   - The script file(s)
   - A `README.md` with usage instructions and details
 
-## Example layout
+### Bash and Python Scripts
 
-```
-scripts/
-├── audio-processor/
-│   ├── process_mp3s.sh
-│   └── README.md
-├── backup-tool/
-│   ├── backup.sh
-│   └── README.md
-└── ...
-```
+- [batch-mp3-processor/](./batch-mp3-processor/) - Process multiple MP3 files in batch (metadata, conversion, etc.)
+- [batch-video-converter/](./batch-video-converter/) - Convert video files between different formats in batch
+- [image-phrase-generator/](./image-phrase-generator/) - Generate images with custom text/phrases
+- [interactive-password-generator/](./interactive-password-generator/) - Create secure passwords with customizable parameters
+- [lottery-scrapper-and-analyzer/](./lottery-scrapper-and-analyzer/) - Scrape lottery results and perform statistical analysis
+- [markdown-to-pdf/](./markdown-to-pdf/) - Convert Markdown documents to formatted PDF files
+- [pdf-merger-script/](./pdf-merger-script/) - Combine multiple PDF files into a single document
+- [qr-code-generator/](./qr-code-generator/) - Generate QR codes for URLs, text, or contact information
+- [tcpdump/](./tcpdump/) - Network packet analysis utilities
+- [urls-text-to-pdf/](./urls-text-to-pdf/) - Convert web content from URLs to PDF format
 
 ## Usage
 
 1. Browse the subfolders to find the script you need.
 2. Read the `README.md` inside each subfolder for setup and usage instructions.
-3. Most scripts are ready to use on Linux, macOS, or WSL with Bash and standard utilities.
+3. Most scripts are ready to use on Linux, macOS, or WSL with Bash standard utilities or Python.
 
 ## Contribution
 

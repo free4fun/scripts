@@ -96,5 +96,5 @@ The script includes comprehensive error handling for:
 
 ## License
 
-This script is licensed under the GNU General Public License v3.0 or later.
-See [LICENSE](https://www.gnu.org/licenses/gpl-3.0.html) for details.
+This script is licensed under the GNU Affero General Public License v3.0 or later.
+See [LICENSE](LICENSE) for details.

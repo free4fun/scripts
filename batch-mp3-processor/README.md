@@ -1,6 +1,11 @@
 # Batch MP3 Audio Processor
 
+**Author:** Mauricio Sosa Giri
+**Email:** free4fun@riseup.net
+
 This Bash script recursively processes all `.mp3` files in a specified root directory (including subdirectories), applies audio filters using `ffmpeg`, and saves the processed files in a mirrored folder structure under an output directory.
+
+---
 
 ## Features
 
@@ -11,10 +16,14 @@ This Bash script recursively processes all `.mp3` files in a specified root dire
 - **Safe Filenames:** Normalizes filenames to avoid problematic characters.
 - **Clear Feedback:** Uses color-coded messages and provides a summary of successes and errors.
 
+---
+
 ## Requirements
 
 - [ffmpeg](https://ffmpeg.org/) installed and available in your system's PATH.
 - Bash shell (Linux, macOS, or Windows Subsystem for Linux).
+
+---
 
 ## Usage
 
@@ -36,6 +45,8 @@ This Bash script recursively processes all `.mp3` files in a specified root dire
 
    The script will process all `.mp3` files it finds, applying the defined filter chain, and output the results into the specified directory.
 
+---
+
 ## Customization
 
 - **Audio Filter:**  
@@ -44,10 +55,14 @@ This Bash script recursively processes all `.mp3` files in a specified root dire
   asetrate=44100*0.66,aresample=44100,atempo=1.2,atempo=0.9,afftdn,equalizer=f=3000:t=q:w=1:g=5,equalizer=f=200:t=q:w=1:g=-5
   ```
 
+---
+
 ## Output
 
 - Processed files are saved as `.mp3` in the `converted` directory (or your specified output directory), preserving the original subdirectory structure.
 - The script prints a summary of the number of files processed and any errors encountered.
+
+---
 
 ## Example
 
@@ -69,6 +84,8 @@ After running the script, you will get:
   /album2
     track1.mp3
 ```
+
+---
 
 ## License
 

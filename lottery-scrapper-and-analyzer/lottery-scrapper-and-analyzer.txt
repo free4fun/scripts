@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# Scraper y analizador de la Quiniela Uruguaya (bash puro)
+# Top 5 para números y terminaciones
+
+set -euo pipefail
+
+output="balls.txt"
+tmp="balls_expanded.txt"
+> "$output"
+> "$tmp"
+
+echo "Fetching Uruguayan Numbers Lottery results and saving to $output..."
+
+for idx in $(seq 0 100 900); do
+  url="https://www3.labanca.com.uy/estadisticas/quiniela?index=$idx"
+  echo "Processing index $idx..."
+  html=$(curl -s "$url")
+
+  # Extraer pares número,cantidad
+  echo "$html" | grep -oP '<span class="num">\d{3}</span> <span>\d+</span>' | \
+    sed -E 's#<span class="num">([0-9]{3})</span> <span>([0-9]+)</span>#\1,\2#' >> "$output"
+done
+
+# Expandir: cada número aparece tantas veces como su cantidad (para análisis clásico)
+while IFS=, read -r num qty; do
+  for ((i=0;i<qty;i++)); do
+    echo "$num" >> "$tmp"
+  done
+done < "$output"
+
+echo "Data collection complete. Now analyzing..."
+
+echo ""
+echo "Top 5 most frequent three-digit numbers:"
+sort "$tmp" | uniq -c | sort -k1,1nr -k2,2n | head -n5 | awk '{printf "%03d: %d times\n", $2, $1}'
+
+echo ""
+echo "Top 5 most frequent two-digit endings (sum of all occurrences):"
+awk -F, '{end=substr($1,2,2); count[end]+=$2} END {for (e in count) printf "%02d: %d times\n", e, count[e]}' "$output" | sort -t: -k2,2nr | head -n5
+
+echo ""
+echo "=== RECOMMENDATION FOR BETTING BASED ON STATISTICS (Uruguayan Numbers Lottery) ==="
+echo ""
+echo "1. Bet on the top 3 most frequent three-digit numbers:"
+sort "$tmp" | uniq -c | sort -k1,1nr -k2,2n | head -n3 | awk '{printf "   - %03d (%d times)\n", $2, $1}'
+echo ""
+echo "2. Bet on all numbers ending with the most frequent two-digit endings:"
+awk -F, '{end=substr($1,2,2); count[end]+=$2} END {for (e in count) printf "%02d: %d times\n", e, count[e]}' "$output" | sort -t: -k2,2nr | head -n3 | awk -F: '{printf "   - Ending %s (%s)\n", $1, $2}'
+echo ""
+echo "Justification:"
+echo "Choosing the most frequent numbers maximizes statistical coverage if there is any bias in the draws."
+echo "However, the Uruguayan Numbers Lottery is a random process and there is no guarantee of future success."
+echo "This recommendation only identifies historical trends, not future outcomes."
+echo ""
+
+echo "Analysis complete."

@@ -36,4 +36,4 @@ If you want to add a new script, please create a new subfolder with your script 
 
 ## License
 
-All scripts in this repository are released under the MIT License unless otherwise specified in the subfolder.
+All scripts in this repository are released under the GPLv3 unless otherwise specified in the subfolder.
